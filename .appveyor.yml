@@ -19,7 +19,7 @@ environment:
 
 before_build:
   - git -C c:\tools\vcpkg\ fetch
-  - git -C c:\tools\vcpkg\ checkout 2025.04.09
+  - git -C c:\tools\vcpkg\ checkout 2024.09.30
   - set VCPKG_DEFAULT_TRIPLET=x64-windows
   - c:\tools\vcpkg\bootstrap-vcpkg.bat
   - vcpkg x-set-installed getopt xxhash pkgconf
@@ -43,6 +43,6 @@ before_test:
   - set PATH=%PATH%;c:\projects\ls-qpack\bin\Debug
 
 test_script:
-  - setlocal EnableDelayedExpansion & ctest -C Debug --output-junit TestResults.xml & echo !ERRORLEVEL! > errorlevel & dir
+  - setlocal EnableDelayedExpansion & ctest -C Debug --output-junit TestResults.xml & set LEVEL=!ERRORLEVEL! & dir
   - curl -v -F "file=@TestResults.xml" "https://ci.appveyor.com/api/testresults/junit/%APPVEYOR_JOB_ID%"
-  - setlocal EnableDelayedExpansion & set /p LEVEL=<errorlevel & exit /b !LEVEL!
+  - setlocal EnableDelayedExpansion & exit /b !LEVEL!
