@@ -6,8 +6,8 @@ cache:
 - c:\tools\vcpkg\installed
 
 environment:
-  CMAKE_ZIP_URL: "https://github.com/Kitware/CMake/releases/download/v3.31.7/cmake-3.31.7-windows-x86_64.zip"
-  CMAKE_INST_DIR: "%PROGRAMFILES(x86)%\CMake"
+  CMAKE_ZIP_URL: 'https://github.com/Kitware/CMake/releases/download/v3.31.7/cmake-3.31.7-windows-x86_64.zip'
+  CMAKE_INST_DIR: '%PROGRAMFILES(x86)%\CMake'
   matrix:
   - job_name: "Internal xxhash"
     LSQPACK_XXH: ON
