@@ -18,7 +18,7 @@ environment:
     XXH_CMAKE: DISABLE
 
 before_build:
-  - 'cmd /c "%PROGRAMFILES(X86)%\CMake\Uninstall.exe"'
+  - 'dir "%PROGRAMFILES(X86)%\CMake\Uninstall.exe"'
   - git -C c:\tools\vcpkg\ fetch
   - git -C c:\tools\vcpkg\ checkout 2025.04.09
   - c:\tools\vcpkg\bootstrap-vcpkg.bat
