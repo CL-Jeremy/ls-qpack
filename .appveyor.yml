@@ -18,7 +18,7 @@ environment:
     XXH_CMAKE: DISABLE
 
 before_build:
-  - dir C:\Program^ Files^ (x86)\CMake
+  - dir C:\Program^ Files^ (x86)\
   - git -C c:\tools\vcpkg\ fetch
   - git -C c:\tools\vcpkg\ checkout 2025.04.09
   - c:\tools\vcpkg\bootstrap-vcpkg.bat
