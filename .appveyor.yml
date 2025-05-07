@@ -21,7 +21,7 @@ environment:
 
 before_build:
   - 'rd /s /q "%CMAKE_INST_DIR%"'
-  - ps: (iwr "${Env:MAKE_ZIP_URL}").Content | ear -DestinationPath "${Env:CMAKE_INST_DIR}"
+  - ps: (iwr "${Env:CMAKE_ZIP_URL}").Content | ear -DestinationPath "${Env:CMAKE_INST_DIR}"
   - git -C c:\tools\vcpkg\ fetch
   - git -C c:\tools\vcpkg\ checkout 2025.04.09
   - c:\tools\vcpkg\bootstrap-vcpkg.bat
