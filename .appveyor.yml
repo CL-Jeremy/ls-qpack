@@ -21,7 +21,7 @@ environment:
 
 before_build:
   - 'rd /s /q "%CMAKE_INST_DIR%"'
-  - 'curl -L "%CMAKE_ZIP_URL%" | C:\msys64\usr\bin\bsdtar -x --strip-components 1 -C "%CMAKE_INST_DIR%"'
+  - C:\msys64\msys2_shell -c 'curl -L "$MAKE_ZIP_URL" | bsdtar -x --strip-components 1 -C "$CMAKE_INST_DIR"'
   - git -C c:\tools\vcpkg\ fetch
   - git -C c:\tools\vcpkg\ checkout 2025.04.09
   - c:\tools\vcpkg\bootstrap-vcpkg.bat
