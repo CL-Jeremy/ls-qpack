@@ -42,6 +42,6 @@ before_test:
   - set PATH=%PATH%;c:\projects\ls-qpack\bin\Debug
 
 test_script:
-  - setlocal EnableDelayedExpansion & ctest -C Debug --output-junit "%CD%\TestResults.xml" & echo !ERRORLEVEL! > errorlevel & dir Testing
+  - setlocal EnableDelayedExpansion & ctest -C Debug --output-junit TestResults.xml & echo !ERRORLEVEL! > errorlevel & tree /a
   - curl -v -F "file=@TestResults.xml" "https://ci.appveyor.com/api/testresults/junit/%APPVEYOR_JOB_ID%"
   - setlocal EnableDelayedExpansion & set /p LEVEL=<errorlevel & exit /b !LEVEL!
