@@ -21,7 +21,8 @@ environment:
 
 before_build:
   - 'rd /s /q "%CMAKE_INST_DIR%"'
-  - ps: 'iwr "${Env:CMAKE_ZIP_URL}" -outfile cmake.zip; if ($?) { expand-archive cmake.zip cmake }'
+  - ps: 'iwr "${Env:CMAKE_ZIP_URL}" -outfile cmake.zip; if ($?) { expand-archive cmake.zip cmake }
+  - dir cmake
   - ps: '$dir = "${Env:CMAKE_INST_DIR}"; mkdir "$dir\bin"; mv cmake\*\*.exe "$dir\bin"; mv cmake\*\* "$dir"'
   - 'dir "%CMAKE_INST_DIR%"'
   - git -C c:\tools\vcpkg\ fetch
